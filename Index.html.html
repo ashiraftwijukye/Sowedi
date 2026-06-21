@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sowed International Cargo Services SMC Limited</title>
+    <style>
+        /* Base Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-green: #1E7E34;
+            --primary-orange: #E65C00;
+            --dark-blue: #0A2540;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+            --text-gray: #4A5568;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-blue);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-green) 50%, var(--primary-orange) 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .brand-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            line-height: 1.2;
+        }
+
+        .brand-name span {
+            color: var(--primary-green);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-orange);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #cc5200;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 37, 64, 0.75), rgba(10, 37, 64, 0.85)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-orange);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #E2E8F0;
+        }
+
+        /* Highlight Ribbon */
+        .ribbon {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-orange);
+            margin-top: 10px;
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .branches-box {
+            background-color: var(--white);
+            padding: 25px;
+            border-left: 5px solid var(--primary-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .branches-box h3 {
+            margin-bottom: 10px;
+            color: var(--primary-green);
+        }
+
+        .branch-subheading {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .grid-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .branch-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .branch-item::before {
+            content: '📌';
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: #EDF2F7;
+            padding: 60px 20px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-orange);
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            color: var(--dark-blue);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+        }
+
+        /* Interactive Quote Tool */
+        .interactive-tool {
+            max-width: 700px;
+            margin: 60px auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-orange);
+        }
+
+        .interactive-tool h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CBD5E0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .calc-btn {
+            width: 100%;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .calc-btn:hover {
+            background-color: #155d26;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #E6FFFA;
+            border: 1px solid #B2F5EA;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        /* Footer / Contacts */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #2D3748;
+            padding-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #A0AEC0;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .copy-text {
+            text-align: center;
+            padding-top: 20px;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about {
+                grid-template-columns: 1fr;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <div class="logo-circle">S</div>
+                <div class="brand-name">SOWED INTERNATIONAL<br><span>CARGO SERVICES SMC LTD</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#quote">Quick Quote</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="https://maps.app.goo.gl/EwXyF77ffrwteb157?g_st=ic" target="_blank" class="cta-btn">Find Us On Map</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Road, Air & Sea <span>Freight Forwarders</span></h1>
+            <p>Providing top-tier cargo forwarding, customs clearing, and transport logistics tailored completely to your global supply chain demands.</p>
+            <a href="#quote" class="cta-btn" style="padding: 15px 30px; font-size: 1.1rem;">Estimate Shipping Cost</a>
+        </div>
+    </section>
+
+    <!-- Professional Status Ribbon -->
+    <div class="ribbon">
+        Customs • Clearing • Forwarding • Professionals
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>Sowed International Cargo Services SMC Limited is a coordinated logistics supplier working in all periods of transportation and production network management services in Uganda.</p>
+            <p>Settled in Tororo with an active, interconnected network of offices across major operational sectors, we bring an unparalleled standing for unwavering quality and fitness to the logistics and delivery industry with over a time of operational involvement.</p>
+        </div>
+        <div class="branches-box">
+            <h3>Our Strategic Network</h3>
+            
+            <div class="branch-subheading">Uganda Offices & Borders</div>
+            <div class="grid-branches">
+                <div class="branch-item">Tororo (HQ)</div>
+                <div class="branch-item">Malaba</div>
+                <div class="branch-item">Busia</div>
+                <div class="branch-item">Mutukula</div>
+                <div class="branch-item">Rwakhakha</div>
+            </div>
+
+            <div class="branch-subheading">Regional Hubs & Destinations</div>
+            <div class="grid-branches">
+                <div class="branch-item">Nairobi</div>
+                <div class="branch-item">Mombasa</div>
+                <div class="branch-item">Juba</div>
+                <div class="branch-item">Kinshasa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Portfolio -->
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Transportation & Logistics Pillars</h2>
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div class="service-icon">🛃</div>
+                    <h3>Clearance & Forwarding</h3>
+                    <p>Complete handling of all services related to customs clearance, regulatory paperwork, and seamless compliance frameworks for clean import/export processing.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚛</div>
+                    <h3>Land Cargo Logistics</h3>
+                    <p>Comprehensive over-the-road transport logistics mapping directly from origin straight to your doorsteps across the world, matching your scale and timeline perfectly.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✈️</div>
+                    <h3>Air & Sea Freight</h3>
+                    <p>Global multi-modal operational support providing efficient cost structures, high premium transit monitoring, and maximum quality of transport service via ocean lines or air networks.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Estimation Engine Container -->
+    <section class="interactive-tool" id="quote">
+        <h2>Instant Quotation Estimator</h2>
+        <form id="quoteForm" onsubmit="calculateQuote(event)">
+            <div class="form-group">
+                <label for="destination">Select Route / Destination</label>
+                <select id="destination" required>
+                    <option value="uganda">Domestic Transit (Within Uganda)</option>
+                    <option value="nairobi">Tororo ↔ Nairobi (Kenya)</option>
+                    <option value="mombasa">Port Route ↔ Mombasa (Kenya)</option>
+                    <option value="juba">Cross Border ↔ Juba (South Sudan)</option>
+                    <option value="kinshasa">International Gateway ↔ Kinshasa (DRC)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="freightType">Select Freight Category</label>
+                <select id="freightType" required>
+                    <option value="road">Road Freight (Land Cargo)</option>
+                    <option value="air">Air Freight (Express)</option>
+                    <option value="sea">Sea Freight (Containerized)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="weightInput">Approximate Cargo Weight (KG)</label>
+                <input type="number" id="weightInput" min="1" placeholder="e.g. 250" required>
+            </div>
+            <button type="submit" class="calc-btn">Generate Instant Calculation</button>
+        </form>
+
+        <div class="result-box" id="resultBox">
+            <h3 style="color: var(--primary-green); margin-bottom: 5px;">Estimation Complete!</h3>
+            <p id="quoteOutput" style="font-weight: 600; font-size: 1.1rem;"></p>
+            <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 5px;">*Final rate depends on custom clearance variables, border fees, and specific cargo handling protocols.</p>
+        </div>
+    </section>
+
+    <!-- Contact Footer Block -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Sowed International Cargo</h3>
+                <p>Your premium, coordinated transportation and supply chain professionals across East Africa and global destinations.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Direct Lines</h3>
+                <a href="tel:+256788908984">📞 +256 788 908984</a>
+                <a href="tel:+256394884808">📞 +256 394 884808</a>
+                <a href="tel:+254703449205">📞 +254 703 449205</a>
+            </div>
+            <div class="footer-col">
+                <h3>Email & Operations</h3>
+                <a href="mailto:sowedinternationalcargoservice@gmail.com">✉️ sowedinternationalcargoservice@gmail.com</a>
+                <p>Hubs: Tororo, Malaba, Busia, Mutukula, Rwakhakha, Nairobi, Mombasa, Juba, Kinshasa</p>
+            </div>
+        </div>
+        <div class="copy-text">
+            &copy; 2026 Sowed International Cargo Services SMC Limited. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Logic Engine Script -->
+    <script>
+        function calculateQuote(event) {
+            event.preventDefault();
+            
+            const type = document.getElementById('freightType').value;
+            const dest = document.getElementById('destination').value;
+            const weight = parseFloat(document.getElementById('weightInput').value);
+            
+            let typeRate = 1.0;
+            let routeMultiplier = 1.0;
+            
+            // Base type modifier
+            if(type === 'road') typeRate = 2.0;
+            if(type === 'air') typeRate = 5.5;
+            if(type === 'sea') typeRate = 1.5;
+            
+            // Route length modifier
+            if(dest === 'uganda') routeMultiplier = 1.0;
+            if(dest === 'nairobi') routeMultiplier = 1.3;
+            if(dest === 'mombasa') routeMultiplier = 1.5;
+            if(dest === 'juba') routeMultiplier = 1.8;
+            if(dest === 'kinshasa') routeMultiplier = 2.2;
+            
+            const finalPerKgRate = (typeRate * routeMultiplier).toFixed(2);
+            const totalEst = (weight * finalPerKgRate).toFixed(2);
+            
+            const resultBox = document.getElementById('resultBox');
+            const outputText = document.getElementById('quoteOutput');
+            
+            outputText.innerText = `Estimated Cost: $${totalEst} USD (Calculated at approx. $${finalPerKgRate}/KG for this specific route)`;
+            resultBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
